@@ -1,0 +1,88 @@
+#keret {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+}
+
+#feladvány_keret {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 500px;
+    background-color: #FDB926;
+    align-items: center;
+}
+
+#feladvány {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feladvany_szo {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #542582;
+}
+
+.válasz {
+    width: 200px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+    background-color: #542582;
+    color: #FDB926;
+}
+
+.alap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.szó {
+    width: 150px;
+    text-align: right;
+    font-size: 24px;
+    margin-right: 10px;
+    color: #542582;
+
+}
+
+
+/* A gombok */
+#inditas,
+#ellenőrzés {
+    cursor: pointer;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+#ujGomb,
+#ujra {
+    background-color: #f55858;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+#inditas {
+    background-color: #542582;
+    color: #FDB926;
+}
+
+
+#ellenoriz {
+    background-color: #CDD629;
+    /* background-color:  #e2e049; */
+}
