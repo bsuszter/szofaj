@@ -30,10 +30,10 @@
 
         <div id="szóelemek" class="szóelemek">
 
-            <div class="szóelemgomb_ablak">
+            <div class="szóelemgomb_ablak" id="szóelemgomb_ablak">
 
                 <div id="ige_button">
-                    Ige<br>
+                    Igék<br>
                     <label class="switch">
                         <input id="chk_ige" type="checkbox">
                         <span id="slider_ige" class="slider"></span>
@@ -42,83 +42,97 @@
                 </div>
 
 
-                <div id="képző_button">
-                    Képző<br>
+                <div id="névszó_button">
+                    Valódi alapszófajok<br>
                     <label class="switch">
-                        <input id="chk_képző" type="checkbox">
-                        <span id="slider_képző" class="slider"></span>
+                        <input id="chk_névszó" type="checkbox">
+                        <span id="slider_névszó" class="slider"></span>
                     </label>
 
                 </div>
 
-                <div id="jel_button">
-                    Jel<br>
+                <div id="névmás_button">
+                    Névmások<br>
                     <label class="switch">
-                        <input id="chk_jel" type="checkbox">
-                        <span id="slider_jel" class="slider"></span>
+                        <input id="chk_névmás" type="checkbox">
+                        <span id="slider_névmás" class="slider"></span>
                     </label>
                 </div>
 
 
-                <div id="rag_button">
-                    Rag<br>
+                <div id="igenév_button">
+                    Igenevek
                     <label class="switch">
-                        <input id="chk_rag" type="checkbox">
-                        <span id="slider_rag" class="slider"></span>
+                        <input id="chk_igenév" type="checkbox">
+                        <span id="slider_igenév" class="slider"></span>
                     </label>
-
                 </div>
+
+                <div id="viszonyszó_button">
+                    Viszonyszók
+                    <label class="switch">
+                        <input id="chk_viszonyszó" type="checkbox">
+                        <span id="slider_viszonyszó" class="slider"></span>
+                    </label>
+                </div>
+
             </div>
 
             <div class="szóelem_ablak">
 
                 <div id="ige">
-                    <div class="ige">E/1. sz. ige</div>
-                    <div class="ige">E/2. sz. ige</div>
-                    <div class="ige">E/3. sz. ige</div>
-                    <div class="ige">T/1. sz. ige</div>
-                    <div class="ige">T/2. sz. ige</div>
-                    <div class="ige">T/3. sz. ige</div>
+                    <div class="szófaj ige">E/1. sz. ige</div>
+                    <div class="szófaj ige">E/2. sz. ige</div>
+                    <div class="szófaj ige">E/3. sz. ige</div>
+                    <div class="szófaj ige">T/1. sz. ige</div>
+                    <div class="szófaj ige">T/2. sz. ige</div>
+                    <div class="szófaj ige">T/3. sz. ige</div>
 
                 </div>
 
 
-
-
-                <div id="képző">
-                    <div class="képző ige">igeképző</div>
-                    <div id="képző_főnév" class="képző főnév">főnév-<br>képző</div>
-                    <div class="képző melléknév">melléknév-<br>képző</div>
-                    <div class="képző számnév">számnév-<br>képző</div>
-
-                </div>
-
-                <div id="jel">
-                    <div class="jel ige">múlt idő jele</div>
-                    <div class="jel ige">jövő idő jele</div>
-                    <div class="jel ige">feltételes mód jele</div>
-                    <div class="jel ige">felszólító mód jele</div>
-                    <div class="jel főnév">többes szám jel<br>főnév</div>
-                    <div class="jel főnév">birtokos személyjel</div>
-                    <div class="jel főnév">birtokjel</div>
-                    <div class="jel főnév">birtoktöbbesítő jel</div>
-                    <div class="jel melléknév">középfok jele</div>
-                    <div class="jel melléknév">felsőfok jele</div>
-                    <div class="jel melléknév">többes szám jel<br>melléknév</div>
+                <div id="névszó">
+                    <div class="szófaj főnév">főnév<br>tulajdonnév</div>
+                    <div class="szófaj főnév">főnév<br>köznév</div>
+                    <div class="szófaj melléknév">melléknév<br>alapfok</div>
+                    <div class="szófaj melléknév">melléknév<br>középfok</div>
+                    <div class="szófaj melléknév">melléknév<br>felsőfok</div>
+                    <div class="szófaj melléknév">melléknév<br>túlzófok</div>
+                    <div class="szófaj számnév">számnév<br>sorszámnév</div>
+                    <div class="szófaj számnév">számnév<br>tőszámnév</div>
+                    <div class="szófaj számnév">számnév<br>törtszámnév</div>
+                    <div class="szófaj határozószó">határozószó</div>
 
                 </div>
 
-                <div id="rag">
-                    <div class="rag ige">E/1. igei személyrag</div>
-                    <div class="rag ige">E/2. igei személyrag</div>
-                    <div class="rag ige">E/3. igei személyrag</div>
-                    <div class="rag ige">T/1. igei személyrag</div>
-                    <div class="rag ige">T/2. igei személyrag</div>
-                    <div class="rag ige">T/3. igei személyrag</div>
-                    <div class="rag főnév">tárgyrag</div>
-                    <div class="rag főnév">főnév határozórag</div>
-                    <div class="rag főnév">birtokos jelző<br>ragja</div>
-                    <div class="jel melléknév">melléknév határozórag</div>
+                <div id="névmás">
+                    <div class="szófaj névmás">személyes<br>névmás</div>
+                    <div class="szófaj névmás">birtokos<br>névmás</div>
+                    <div class="szófaj névmás">kérdő<br>névmás</div>
+                    <div class="szófaj névmás">mutató<br>névmás</div>
+                    <div class="szófaj névmás">kölcsönös<br>névmás</div>
+                    <div class="szófaj névmás">határozatlan<br>névmás</div>
+                    <div class="szófaj névmás">általános<br>névmás</div>
+                    <div class="szófaj névmás">visszaható<br>névmás</div>
+                    <div class="szófaj névmás">vonatkozó<br>névmás</div>
+
+                </div>
+
+                <div id="igenév">
+                    <div class="szófaj igenév">főnévi<br>igenév</div>
+                    <div class="szófaj igenév">folyamatos<br>melléknévi ~</div>
+                    <div class="szófaj igenév">befejezett<br>melléknévi ~</div>
+                    <div class="szófaj igenév">beálló<br>melléknévi ~</div>
+                    <div class="szófaj igenév">határozói<br>igenév</div>
+                </div>
+
+                <div id="viszonyszó">
+                    <div class="szófaj viszonyszó">névelő</div>
+                    <div class="szófaj viszonyszó">névutó</div>
+                    <div class="szófaj viszonyszó">kötőszó</div>
+                    <div class="szófaj viszonyszó">segédige</div>
+                    <div class="szófaj viszonyszó">igekötő</div>
+                    <div class="szófaj viszonyszó">módosítószó</div>
                 </div>
             </div>
         </div>

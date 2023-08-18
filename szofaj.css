@@ -1,3 +1,70 @@
+/* reszponzivitás */
+@media only screen and (max-width: 400px) {
+    #keret {
+        flex-direction: column !important;
+    }
+
+    #szóelemek,
+    #feladvány_keret {
+        width: 100% !important;
+    }
+
+    #szótő_button,
+    #képző_button,
+    #névmás_button,
+    #igenév_button {
+        color: white;
+    }
+
+    .ige,
+    .főnév,
+    .melléknév,
+    .számnév,
+    .igenév,
+    .határozószó,
+    .viszonyszó,
+    .névmás {
+        width: 100px !important;
+        font-size: 12px !important;
+    }
+
+    #szótő,
+    #képző,
+    #névmás,
+    #igenév {
+        height: 260px !important;
+    }
+
+    .válasz {
+        width: 150px !important;
+    }
+}
+
+
+/* reszponzivitás */
+@media only screen and (max-width: 985px) {
+
+    #szótő_button,
+    #képző_button,
+    #névmás_button,
+    #igenév_button {
+        color: white;
+    }
+
+    .ige,
+    .főnév,
+    .melléknév,
+    .számnév,
+    .igenév,
+    .határozószó,
+    .viszonyszó,
+    .névmás {
+        width: 90px !important;
+        font-size: 12px !important;
+    }
+
+}
+
 #keret {
     width: 100%;
     height: 550px;
@@ -36,9 +103,10 @@
 
 
 #ige,
-#képző,
-#jel,
-#rag {
+#névszó,
+#névmás,
+#igenév,
+#viszonyszó {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -54,19 +122,20 @@
 }
 
 
-/* #képző{
+/* #névszó{
 
 }
 
-#jel{
+#névmás{
 
 }
  */
 
 .ige,
-.képző,
-.jel,
-.rag {
+.névszó,
+.névmás,
+.igenév,
+.viszonyszó {
     width: 120px;
     height: 55px;
     margin: 3px;
@@ -82,6 +151,20 @@
 
 .ige {
     background-color: red;
+    color: white;
+    width: 120px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+}
+
+.névszó {
+    background-color: blue;
     color: white;
     width: 120px;
     height: 55px;
@@ -123,6 +206,58 @@
 
 .számnév {
     background-color: yellow;
+    width: 120px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+}
+
+.határozószó {
+    background-color: salmon;
+    width: 120px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+}
+
+.névmás {
+    background-color: peachpuff;
+    width: 120px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+}
+
+.igenév {
+    background-color: Turquoise;
+    width: 120px;
+    height: 55px;
+    margin: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #000;
+    text-align: center;
+    box-shadow: 3px 3px #888888;
+    cursor: pointer;
+}
+
+.viszonyszó {
+    background-color: chocolate;
     width: 120px;
     height: 55px;
     margin: 3px;
@@ -242,9 +377,10 @@ input:checked+.slider:before {
 }
 
 #ige_button,
-#képző_button,
-#jel_button,
-#rag_button {
+#névszó_button,
+#névmás_button,
+#igenév_button,
+#viszonyszó_button {
     color: #FDB926;
 }
 

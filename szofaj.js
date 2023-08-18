@@ -1,7 +1,7 @@
 mondatok = [
     ["Rajzolnak ezek a fiúk holnap", "."],
     ["Süt három pék", "?"],
-    ["Köröznek piros autók", "."]
+    ["Köröznek a piros autók", "."]
 ]
 
 megoldások = [
@@ -14,6 +14,7 @@ megoldások = [
 document.getElementById("ellenőrzés").style.display = "none";
 document.getElementById("ujGomb").style.display = "none";
 document.getElementById("ujra").style.display = "none";
+document.getElementById("szóelemgomb_ablak").style.display = "none";
 
 
 //a keverés a random.js-ben történik, onnan kapunk egy kevert tömböt 
@@ -27,7 +28,9 @@ console.log("kever: " + mondatsorszam);
 let szavak_szama = mondatok[mondatsorszam[sorszam]].length - 1;
 
 function indit() {
+    document.getElementById("szóelemgomb_ablak").style.display = "block";
     document.getElementById("ujGomb").style.display = "block";
+    document.getElementById("ellenőrzés").style.display = "block";
     document.getElementById("inditas").style.display = "none";
     /* A feladvány kiíratása mondatként 
     a "mondatsorszam" előállít egy véletlenszerű számsort amiben annyi szám szerepel, ahány mondat van
@@ -134,27 +137,29 @@ $(function () {
 
     //gombok állapota kezdetben nincs lenyomva
     let ige_lenyomás = false;
-    let képző_lenyomás = false;
-    let jel_lenyomás = false;
-    let rag_lenyomás = false;
+    let névszó_lenyomás = false;
+    let névmás_lenyomás = false;
+    let igenév_lenyomás = false;
 
     //szóelemek divjének lekérése id alapján
     let $ige_div = $('#ige');
-    let $képző_div = $('#képző');
-    let $jel_div = $('#jel');
-    let $rag_div = $('#rag');
+    let $névszó_div = $('#névszó');
+    let $névmás_div = $('#névmás');
+    let $igenév_div = $('#igenév');
+    let $viszonyszó_div = $('#viszonyszó');
 
     //választható szóelemek kezdetben elrejtve
     $ige_div.hide();
-    $képző_div.hide();
-    $jel_div.hide();
-    $rag_div.hide();
+    $névszó_div.hide();
+    $névmás_div.hide();
+    $igenév_div.hide();
+    $viszonyszó_div.hide();
 
     //gombok lekérdezése id alapján
     let $button_ige = $('#ige_btn');
-    let $button_képző = $('#képző_btn');
-    let $button_jel = $('#jel_btn');
-    let $button_rag = $('#rag_btn');
+    let $button_névszó = $('#névszó_btn');
+    let $button_névmás = $('#névmás_btn');
+    let $button_igenév = $('#igenév_btn');
 
     $("#slider_ige").click(function () {
         var checkbox = document.getElementById("chk_ige");
@@ -163,13 +168,15 @@ $(function () {
             if (checkbox.checked) {
                 // minden panelt bezár kivéve az aktuálisat
                 $ige_div.show();
-                $képző_div.hide();
-                $jel_div.hide();
-                $rag_div.hide();
+                $névszó_div.hide();
+                $névmás_div.hide();
+                $igenév_div.hide();
+                $viszonyszó_div.hide();
                 // minden kapcsolót kikapcsol, kivéve az aktuálisat
-                document.getElementById("chk_képző").checked = false;
-                document.getElementById("chk_jel").checked = false;
-                document.getElementById("chk_rag").checked = false;
+                document.getElementById("chk_névszó").checked = false;
+                document.getElementById("chk_névmás").checked = false;
+                document.getElementById("chk_igenév").checked = false;
+                document.getElementById("chk_viszonyszó").checked = false;
             } else {
                 // do that
                 $ige_div.hide();
@@ -177,18 +184,108 @@ $(function () {
         });
     });
 
+    $("#slider_névszó").click(function () {
+        var checkbox = document.getElementById("chk_névszó");
 
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                // minden panelt bezár kivéve az aktuálisat
+                $ige_div.hide();
+                $névszó_div.show();
+                $névmás_div.hide();
+                $igenév_div.hide();
+                $viszonyszó_div.hide();
+                // minden kapcsolót kikapcsol, kivéve az aktuálisat
+                document.getElementById("chk_ige").checked = false;
+                document.getElementById("chk_névmás").checked = false;
+                document.getElementById("chk_igenév").checked = false;
+                document.getElementById("chk_viszonyszó").checked = false;
+            } else {
+                // do that
+                $névszó_div.hide();
+            }
+        });
+    });
+
+    $("#slider_névmás").click(function () {
+        var checkbox = document.getElementById("chk_névmás");
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                // minden panelt bezár kivéve az aktuálisat
+                $ige_div.hide();
+                $névszó_div.hide();
+                $névmás_div.show();
+                $igenév_div.hide();
+                $viszonyszó_div.hide();
+                // minden kapcsolót kikapcsol, kivéve az aktuálisat
+                document.getElementById("chk_ige").checked = false;
+                document.getElementById("chk_névszó").checked = false;
+                document.getElementById("chk_igenév").checked = false;
+                document.getElementById("chk_viszonyszó").checked = false;
+            } else {
+                // do that
+                $névmás_div.hide();
+            }
+        });
+    });
+
+    $("#slider_igenév").click(function () {
+        var checkbox = document.getElementById("chk_igenév");
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                // minden panelt bezár kivéve az aktuálisat
+                $ige_div.hide();
+                $névszó_div.hide();
+                $névmás_div.hide();
+                $viszonyszó_div.hide();
+                $igenév_div.show();
+                // minden kapcsolót kikapcsol, kivéve az aktuálisat
+                document.getElementById("chk_ige").checked = false;
+                document.getElementById("chk_névszó").checked = false;
+                document.getElementById("chk_névmás").checked = false;
+                document.getElementById("chk_viszonyszó").checked = false;
+            } else {
+                // do that
+                $igenév_div.hide();
+            }
+        });
+    });
+
+    $("#slider_viszonyszó").click(function () {
+        var checkbox = document.getElementById("chk_viszonyszó");
+
+        checkbox.addEventListener('change', function () {
+            if (checkbox.checked) {
+                // minden panelt bezár kivéve az aktuálisat
+                $ige_div.hide();
+                $névszó_div.hide();
+                $névmás_div.hide();
+                $igenév_div.hide();
+                $viszonyszó_div.show();
+                // minden kapcsolót kikapcsol, kivéve az aktuálisat
+                document.getElementById("chk_ige").checked = false;
+                document.getElementById("chk_névszó").checked = false;
+                document.getElementById("chk_névmás").checked = false;
+                document.getElementById("chk_igenév").checked = false;
+            } else {
+                // do that
+                $viszonyszó_div.hide();
+            }
+        });
+    });
     //  szóelem osztályok lekérdezése
-    let $ige_class = $('.ige');
-    let $képző_class = $('.képző');
-    let $jel_class = $('.jel');
-    let $rag_class = $('.rag');
+    let $szófaj_class = $('.szófaj');
+    let $főnév_class = $('.főnév');
+    let $névmás_class = $('.névmás');
+    let $igenév_class = $('.igenév');
 
 
 
     //osztály alapján azonosított szóelemek tartalmának lekérése gombnyomásra
-    //IGE
-    $ige_class.click(function (event) {
+    //SZÓFAJ DOBOZOK
+    $szófaj_class.click(function (event) {
         event.preventDefault();
         // a tömb egy sorában lévő elemek száma (egytől kezdünk)
         const sajatTomb = mondatok[mondatsorszam[sorszam]][0].split(" ");
@@ -247,6 +344,25 @@ $(function () {
                     mo.style.color = "black";
                 }
 
+                if (this.className.includes("határozószó")) {
+                    mo.style.backgroundColor = "salmon";
+                    mo.style.color = "black";
+                }
+
+                if (this.className.includes("névmás")) {
+                    mo.style.backgroundColor = "peachpuff";
+                    mo.style.color = "black";
+                }
+
+                if (this.className.includes("igenév")) {
+                    mo.style.backgroundColor = "Turquoise";
+                    mo.style.color = "black";
+                }
+
+                if (this.className.includes("viszonyszó")) {
+                    mo.style.backgroundColor = "chocolate";
+                    mo.style.color = "black";
+                }
                 //this.style.visibility = "hidden";
                 break;
             }
@@ -254,9 +370,8 @@ $(function () {
         }
 
     });
-
-
 });
+
 
 
 
