@@ -319,6 +319,16 @@
 
 }
 
+.csekkol {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    margin: 10px;
+
+    background-size: 30px 30px;
+
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

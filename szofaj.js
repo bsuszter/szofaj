@@ -5,9 +5,9 @@ mondatok = [
 ]
 
 megoldások = [
-    ["névmás", "névelő", "főnév", "határozószó", "ige"],
-    ["számnév", "főnév"],
-    ["melléknév", "főnév", "ige"],
+    ["T/3. sz. ige", "mutató<br>névmás", "névelő", "főnév<br>köznév", "határozószó"],
+    ["E/3. sz. ige", "számnév<br>tőszámnév", "főnév<br>köznév"],
+    ["T/3. sz. ige", "névelő", "melléknév<br>alapfok", "főnév<br>köznév"],
 
 ]
 
@@ -54,11 +54,13 @@ function indit() {
         var blokk_beszuras_alap;
         var blokk_beszuras_szo;
         var blokk_beszuras_valasz;
+        var blokk_csekkol;
 
         // div elem beszúrása
         blokk_beszuras_alap = document.createElement('div');
         blokk_beszuras_szo = document.createElement('div');
         blokk_beszuras_valasz = document.createElement('div');
+        blokk_csekkol = document.createElement('div');
 
         // szó elhelyezése az elemben
         container_block = document.getElementById('feladvány');
@@ -69,16 +71,19 @@ function indit() {
 
         document.getElementById('válasz_alap' + (index)).appendChild(blokk_beszuras_szo);
         document.getElementById('válasz_alap' + (index)).appendChild(blokk_beszuras_valasz);
+        document.getElementById('válasz_alap' + (index)).appendChild(blokk_csekkol);
 
 
         //egyedi azonosító (id) hozzáadása
         blokk_beszuras_szo.setAttribute('id', 'szó' + (index + 1));
         blokk_beszuras_valasz.setAttribute('id', 'válasz' + (index + 1));
         blokk_beszuras_alap.setAttribute('class', 'alap');
+        blokk_csekkol.setAttribute('id', 'csekkol' + (index + 1));
 
         //osztály hozzáadása minden elemhez
         blokk_beszuras_szo.setAttribute('class', 'szó');
         blokk_beszuras_valasz.setAttribute('class', 'válasz');
+        blokk_csekkol.setAttribute('class', 'csekkol');
 
         blokk_beszuras_szo.innerText = sajatTomb[index];
 
@@ -372,8 +377,47 @@ $(function () {
     });
 });
 
+//a mondatok sorrendje véletlenszerűen kialakult korábban, itt beállítom, hogy a véletlen tömbből az első elemet vegye ki
+let j = 0;
+
+let $ellenőrzés = $('#ellenőrzés');
+$ellenőrzés.click(function (event) {
+    //document.getElementById("ellenőrzés").style.display = "none";
+    document.getElementById("ujGomb").style.display = "block";
+
+    // a tömb egy sorában lévő elemek száma (egytől kezdünk)
+    const sajatTomb = mondatok[mondatsorszam[sorszam]][0].split(" ");
+    const szavak_szama = sajatTomb.length;
+    console.log("szavak_szama " + szavak_szama);
 
 
+    console.log("válasz1: ", válasz1.innerHTML);
+    console.log("válasz2: ", válasz2.innerHTML);
+    console.log("element: ", mondatsorszam);
+
+    console.log("megoldás", megoldások[mondatsorszam[0]][0])
+    console.log("megoldás", megoldások[mondatsorszam[0]][1])
+    console.log("megoldás", megoldások[mondatsorszam[0]][2])
+
+
+    for (let index = 1; index < szavak_szama + 1; index++) {
+        let válasz_doboz = document.getElementById("válasz" + index);
+        //console.log("valaszdoboz: ", válasz_doboz);
+        //console.log("tombelemszam: ", tombElemSzam);
+        console.log("válaszdoboz: ", válasz_doboz.innerHTML);
+        console.log("mo: ", megoldások[mondatsorszam[j]][index - 1]);
+        if (válasz_doboz.innerHTML == megoldások[mondatsorszam[j]][index - 1]) {
+            console.log("ok");
+            document.getElementById("csekkol" + index).style.backgroundImage = "url(https://cdn.pixabay.com/photo/2013/07/12/17/00/approved-151676_960_720.png)";
+        } else {
+            console.log("nem ok");
+            document.getElementById("csekkol" + index).style.backgroundImage = "url(https://cdn.pixabay.com/photo/2014/03/24/17/21/wrong-295503_960_720.png)";
+
+        }
+    }
+
+
+});
 
 
 
@@ -383,6 +427,7 @@ $ujfeladat.click(function (event) {
 
     const boxes1 = document.querySelectorAll('.szó');
     const boxes2 = document.querySelectorAll('.válasz');
+    const boxes3 = document.querySelectorAll('.csekkol');
 
 
     boxes1.forEach(box => {
@@ -390,6 +435,10 @@ $ujfeladat.click(function (event) {
     });
 
     boxes2.forEach(box => {
+        box.remove();
+    });
+
+    boxes3.forEach(box => {
         box.remove();
     });
 
@@ -404,7 +453,7 @@ $ujfeladat.click(function (event) {
         indit();
     }
 
-
+    j += 1;
 });
 
 let $ujra = $('#ujra');
